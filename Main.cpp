@@ -4,7 +4,9 @@
 #include "Board.h"
 
 int main() {
-	Cell Cell();
+	Cell Cell(3);
 
-	Board Board(10,10,15)
+	Board Board(10, 10, 15);
+
+	return 0;
 }

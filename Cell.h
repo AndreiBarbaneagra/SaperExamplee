@@ -7,7 +7,7 @@ struct Cell {
 	
 
 	bool isMine() const;
-	bool GameOver() const;
+	
 };
 
 #endif

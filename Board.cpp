@@ -5,5 +5,10 @@ Board::Board(int width, int height, int mineCount) {
 	height_ = height;
 	mineCount_ = mineCount;
 
+};
 
+bool Board::GameOver() const {
+
+	std::cout << "Вы попали на бомбу! Игра окончена" << std::endl;
+	return true;
 }

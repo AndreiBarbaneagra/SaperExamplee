@@ -6,25 +6,25 @@
 #include "Board.cpp"
 
 int main() {
-	Cell Cell(2);
+	//Cell Cell(2);
 
-	if (Cell.isMine()) {
-		std::cout << "Ёта €чейка - мина" << std::endl;
-	}
-	else {
-		std::cout << "Ёта €чейка не €вл€етс€ миной" << std::endl;
-	}
+	//if (Cell.isMine()) {
+		//std::cout << "Ёта €чейка - мина" << std::endl;
+	//}
+	//else {
+		//std::cout << "Ёта €чейка не €вл€етс€ миной" << std::endl;
+	//}
 
-	Board Board(10, 10, 15);
+	//Board Board(10, 10, 15);
 
 	bool playerHitBomb = true;
 
 	if (playerHitBomb) {
-		if (Board.GameOver()) {
+		//if (Board.GameOver()) {
 			//
 			//
 			//
-		}
+		//}
 	}
 
 	return 0;

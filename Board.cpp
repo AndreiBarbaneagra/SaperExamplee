@@ -1,9 +1,10 @@
 #include "Board.h"
+#include <iostream>
 
 Board::Board(int width, int height, int mineCount) {
-	width_ = width;
-	height_ = height;
-	mineCount_ = mineCount;
+	//width_ = width;
+	//height_ = height;
+	//mineCount_ = mineCount;
 
 };
 

@@ -7,6 +7,8 @@ struct Board {
 	int mineCount;
 
 
+	Board(int width, int height, int mineCount);
+
 	bool GameOver() const;
 };
 

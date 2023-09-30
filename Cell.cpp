@@ -6,6 +6,7 @@ Cell::Cell(int Value) {
 };
 
 bool Cell::isMine() const {
-	
+
 	return Value_ == -1;
+	
 }

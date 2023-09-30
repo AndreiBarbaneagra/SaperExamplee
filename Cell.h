@@ -3,8 +3,10 @@
 
 struct Cell {
 	
-	int Value; //kol-vo min vokrug kletki
+	int Value_;//kol-vo min vokrug kletki
 	
+
+	Cell(int Value);
 
 	bool isMine() const;
 	

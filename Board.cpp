@@ -57,3 +57,7 @@ void Board::printBoard() {
 void Board::revealCell(int x, int y) {
     cells[y][x].reveal();
 }
+
+void Board::revealCellByUser(int x, int y) {
+    cells[y][x].reveal();
+}

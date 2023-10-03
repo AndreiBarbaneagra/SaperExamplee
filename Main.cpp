@@ -3,8 +3,7 @@
 
 int main() {
 	Board gameBoard(5, 5);
-	gameBoard.generateMines(10);
-	gameBoard.printBoard();
+	gameBoard.generateMines(4);
 	gameBoard.revealCell(2, 2);
 	gameBoard.printBoard();
 

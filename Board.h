@@ -1,15 +1,19 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-struct Board {
-	int width;
-	int height;
-	int mineCount;
+#include "cell.h"
 
+class Board {
+private:
+    int width;
+    int height;
+    Cell** cells;
 
-	Board(int width, int height, int mineCount);
-
-	bool GameOver() const;
+public:
+    Board(int w, int h);
+    ~Board();
+    void generateMines(int numMines);
+    void printBoard();
+    void revealCell(int x, int y);
 };
-
 #endif

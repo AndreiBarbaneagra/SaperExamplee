@@ -1,12 +1,22 @@
 #include "Cell.h"
 
-Cell::Cell(int Value) {
-	Value_ = Value;
+Cell::Cell() {
+    isMine = false;
+    isRevealed = false;
+}
 
-};
+bool Cell::getIsMine() {
+    return isMine;
+}
 
-bool Cell::isMine() const {
+void Cell::setMine() {
+    isMine = true;
+}
 
-	return Value_ == -1;
-	
+bool Cell::getIsRevealed() {
+    return isRevealed;
+}
+
+void Cell::reveal() {
+    isRevealed = true;
 }

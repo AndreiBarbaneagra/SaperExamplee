@@ -1,31 +1,15 @@
-#include <iostream>
-
-#include "Cell.h"
-#include "Board.h"
-#include "Cell.cpp"
-#include "Board.cpp"
+#include "board.h"
+#include "iostream"
 
 int main() {
-	//Cell Cell(2);
+	Board gameBoard(5, 5);
+	gameBoard.generateMines(10);
+	gameBoard.printBoard();
+	gameBoard.revealCell(2, 2);
+	gameBoard.printBoard();
 
-	//if (Cell.isMine()) {
-		//std::cout << "Ёта €чейка - мина" << std::endl;
-	//}
-	//else {
-		//std::cout << "Ёта €чейка не €вл€етс€ миной" << std::endl;
-	//}
-
-	//Board Board(10, 10, 15);
-
-	bool playerHitBomb = true;
-
-	if (playerHitBomb) {
-		//if (Board.GameOver()) {
-			//
-			//
-			//
-		//}
-	}
+	std::cout << "Enter to close window";
+	std::cin.get(); // ∆дем, пока пользователь нажмет Enter
 
 	return 0;
 }

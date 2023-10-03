@@ -1,15 +1,20 @@
 CC = gcc
 CXXFLAGS = -O2 -std=c++14
 LDFLAGS = -lstdc++
-OUT = file
+OUT = game
 
 
 
-all: file
+all: game
 
-file: main.o
-	$(CC) main.o -o $(OUT) $(LDFLAGS)
+game: main.o cell.o board.o
+	$(CC) main.o cell.o board.o -o $(OUT) $(LDFLAGS)
 
-main.o: main.cpp
-	$(CC) -c main.cpp $(CXXFLAGS)
+main.o: Main.cpp
+	$(CC) -c Main.cpp $(CXXFLAGS)
 
+cell.o: Cell.cpp
+	$(CC) -c Cell.cpp $(CXXFLAGS)
+
+board.o: Board.cpp
+	$(CC) -c Board.cpp $(CXXFLAGS)

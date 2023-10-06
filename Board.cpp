@@ -60,4 +60,22 @@ void Board::revealCell(int x, int y) {
 
 void Board::revealCellByUser(int x, int y) {
     cells[y][x].reveal();
+
+    if (hasPlayerLost()) {
+        printBoard();
+
+        std::cin.get();
+    }
+
+}
+
+bool Board::hasPlayerLost() {
+    for (int i = 0; i < height; ++i) {
+        for (int j = 0; j < width; ++j) {
+            if (cells[i][j].getIsMine() && cells[i][j].getIsRevealed()) {
+                return true;
+            }
+        }
+    }
+    return false;
 }

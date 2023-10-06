@@ -16,16 +16,21 @@ int main() {
 
         gameBoard.revealCellByUser(x, y);
 
-        // Добавьте условие для проверки, завершена ли игра (например, если игрок открыл мину)
-        // Например:
-        // if (gameBoard.isGameOver()) {
-        //     gameover = true;
-        // }
+        // Check if the player has won.
+        //if (gameBoard.hasPlayerWon()) {
+        //    gameOver = true;
+        //    std::cout << "Congratulations, you won!" << std::endl;
+        //}
+
+        // Check if the player has lost.
+        if (gameBoard.hasPlayerLost()) {
+            gameover = true;
+            std::cout << "You lost!" << std::endl;
+            std::cin.get();
+        }
     }
 
 	std::cout << "Enter to close window";
-    //std::cout << "Game Over" << std::endl;
-	std::cin.get(); // Ждем, пока пользователь нажмет Enter
 
 	return 0;
 }

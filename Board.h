@@ -16,6 +16,7 @@ public:
     void printBoard();
     void revealCell(int x, int y);
     void revealCellByUser(int x, int y);
+    bool hasPlayerLost();
 
 };
 #endif

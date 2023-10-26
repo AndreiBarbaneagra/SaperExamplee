@@ -1,5 +1,4 @@
-#ifndef CELL_H
-#define CELL_H
+#pragma once
 
 	class Cell {
 		private:
@@ -13,4 +12,3 @@
 		bool getIsRevealed();
 		void reveal();
 };
-#endif

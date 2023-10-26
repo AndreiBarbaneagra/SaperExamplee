@@ -79,3 +79,15 @@ bool Board::hasPlayerLost() {
     }
     return false;
 }
+
+bool Board::operator==(const Board& other) const {
+    return (width == other.width) && (height == other.height);
+}
+
+std::istream& operator>>(std::istream& in, Board& board) {
+    return in;
+}
+
+std::ostream& operator<<(std::ostream& out, const Board& board) {
+    return out;
+}

@@ -5,7 +5,7 @@ Cell::Cell() {
     isRevealed = false;
 }
 
-bool Cell::getIsMine() {
+bool Cell::getIsMine() const {
     return isMine;
 }
 
@@ -13,7 +13,7 @@ void Cell::setMine() {
     isMine = true;
 }
 
-bool Cell::getIsRevealed() {
+bool Cell::getIsRevealed() const {
     return isRevealed;
 }
 

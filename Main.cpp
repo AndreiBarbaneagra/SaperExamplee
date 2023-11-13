@@ -1,10 +1,18 @@
 #include "board.h"
 #include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cstdlib>
+#include <ctime>
 
 int main() {
-	Board gameBoard(5, 5);
-	gameBoard.generateMines(4);
-	
+
+    const int width = 5;
+    const int height = 5;
+    const int numMines = 4;
+
+    Board gameBoard(width, height);
+    gameBoard.generateMines(numMines);
     bool gameover = false;
 
     while (!gameover) {
@@ -16,20 +24,12 @@ int main() {
 
         gameBoard.revealCellByUser(x, y);
 
-        // Check if the player has won.
-        //if (gameBoard.hasPlayerWon()) {
-        //    gameOver = true;
-        //    std::cout << "Congratulations, you won!" << std::endl;
-        //}
-
-        // Check if the player has lost.
         if (gameBoard.hasPlayerLost()) {
             gameover = true;
             std::cout << "You lost!" << std::endl;
             std::cin.get();
         }
     }
-
 	std::cout << "Enter to close window";
 
 	return 0;

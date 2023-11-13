@@ -1,12 +1,13 @@
 #pragma once
 
+#include <vector>
 #include "cell.h"
 
 class Board {
 private:
     int width;
     int height;
-    Cell** cells;
+    std::vector<std::vector<Cell>> cells;
 
 public:
     Board(int w, int h);

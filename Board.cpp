@@ -1,50 +1,44 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <vector>
+#include <algorithm>
 #include "board.h"
 
-Board::Board(int w, int h) {
-    width = w;
-    height = h;
-    cells = new Cell * [height];
-    for (int i = 0; i < height; ++i) {
-        cells[i] = new Cell[width];
-    }
-}
+Board::Board(int w, int h) : width(w), height(h), cells(h, std::vector<Cell>(w)) {}
 
 Board::~Board() {
     for (int i = 0; i < height; ++i) {
-        delete[] cells[i];
+        cells[i].clear();
     }
-    delete[] cells;
+    cells.clear();
 }
 
 void Board::generateMines(int numMines) {
-    srand(time(NULL));
+    srand(static_cast<unsigned>(time(NULL)));
+    std::vector<std::pair<int, int>> positions;
+
+    for (int i = 0; i < height; ++i) {
+        for (int j = 0; j < width; ++j) {
+            positions.emplace_back(i, j);
+        }
+    }
+
+    std::random_shuffle(positions.begin(), positions.end());
 
     for (int i = 0; i < numMines; ++i) {
-        int x = rand() % width;
-        int y = rand() % height;
+        int x = positions[i].second;
+        int y = positions[i].first;
 
-        if (!cells[y][x].getIsMine()) {
-            cells[y][x].setMine();
-        }
-        else {
-            --i;
-        }
+        cells[y][x].setMine();
     }
 }
 
 void Board::printBoard() {
-    for (int i = 0; i < height; ++i) {
-        for (int j = 0; j < width; ++j) {
-            if (cells[i][j].getIsRevealed()) {
-                if (cells[i][j].getIsMine()) {
-                    std::cout << " * ";
-                }
-                else {
-                    std::cout << " " << 0 << " ";
-                }
+    for (const auto& row : cells) {
+        for (const auto& cell : row) {
+            if (cell.getIsRevealed()) {
+                std::cout << (cell.getIsMine() ? " * " : " 0 ");
             }
             else {
                 std::cout << " - ";
@@ -70,14 +64,11 @@ void Board::revealCellByUser(int x, int y) {
 }
 
 bool Board::hasPlayerLost() {
-    for (int i = 0; i < height; ++i) {
-        for (int j = 0; j < width; ++j) {
-            if (cells[i][j].getIsMine() && cells[i][j].getIsRevealed()) {
-                return true;
-            }
-        }
-    }
-    return false;
+    return std::any_of(cells.begin(), cells.end(), [](const auto& row) {
+        return std::any_of(row.begin(), row.end(), [](const auto& cell) {
+            return cell.getIsMine() && cell.getIsRevealed();
+            });
+        });
 }
 
 bool Board::operator==(const Board& other) const {
